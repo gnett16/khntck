@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự báo thời tiết Hà Nội</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .weather-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .weather-info p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dự báo thời tiết tại Hà Nội</h1>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+        <div class="weather-info">
+            <p><strong>Thời gian:</strong> {{ timestamp }}</p>
+            <p><strong>Nhiệt độ hiện tại:</strong> {{ temp }}°C</p>
+            <p><strong>Cảm giác như:</strong> {{ feels_like }}°C</p>
+            <p><strong>Độ ẩm:</strong> {{ humidity }}%</p>
+            <p><strong>Áp suất:</strong> {{ pressure }} hPa</p>
+            <p><strong>Dự đoán nhiệt độ sau 1 giờ:</strong> {{ prediction|round(2) }}°C</p>
+            {% if mse %}
+                <p><strong>MSE trên tập kiểm tra:</strong> {{ mse|round(4) }}</p>
+            {% endif %}
+        </div>
+        <img src="{{ url_for('static', filename='temperature_plot.png') }}" alt="Biểu đồ nhiệt độ">
+        {% if loss_plot_exists %}
+            <img src="{{ url_for('static', filename='loss_plot.png') }}" alt="Biểu đồ loss">
+        {% endif %}
+    {% endif %}
+</body>
+</html>
