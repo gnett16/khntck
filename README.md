@@ -24,7 +24,7 @@ rm -rf static/*
 
 *khi huấn luyện lại thời gian khoảng 15p để lấy dữ liệu mới
 
-api key từ openweather :d2d021ceb18c28747d865fd2b33d71ea
+api key từ openweather: d2d021ceb18c28747d865fd2b33d71ea
 
-key dự phòng : b19d206dbc49beb17d642bcba1d7ed5b
+key dự phòng: b19d206dbc49beb17d642bcba1d7ed5b
 
