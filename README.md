@@ -19,6 +19,7 @@ python3 weather_forecast_app.py
 
 Để tạo dữ liệu mới và huấn luyện lại: 
 
-rm weather_model.h5 scaler.pkl loss_history.pkl weather_dataset.csv
+rm weather_dataset.csv temp_model.h5 rain_model.h5 scaler.pkl loss_history.pkl
+rm -rf static/*
 
 *khi huấn luyện lại thời gian khoảng 15p để lấy dữ liệu mới
